@@ -74,5 +74,10 @@
     .dynamicData {
         border: 1px solid silver;
         border-radius: 10px;
+        font-size: .65rem;
+        padding: 10px;
+    }
+    .dynamicData span {
+        font-size: .5rem;
     }
 }
