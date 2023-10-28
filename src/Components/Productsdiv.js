@@ -1,4 +1,4 @@
-import React , {useContext} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./Productsdiv.module.css";
 
@@ -6,19 +6,20 @@ import styles from "./Productsdiv.module.css";
 // Helpers
 import { isInCart, quantityCount, shorten } from '../Helpers/functions';
 
-// Context
-import { CartContextPro } from '../Context/Cartcontext';
 
+// redux
+import { useDispatch , useSelector } from 'react-redux';
 
 const Productsdiv = ({data}) => {
-    const {state,dispatch} = useContext(CartContextPro);
+    const state = useSelector(state=>state.productContainer.products);
+    const dispatch = useDispatch();
     return (
         <div className={styles.container}>
             <img src={data.image} alt='product' className={styles.image}/>
             <h2>{shorten(data.title)}</h2>
             <Link   to={`/products/${data.id}`}>Details</Link>
             <span>Price:{data.price}$</span>
-            <div className={styles.buttonContainer}>
+            {/* <div className={styles.buttonContainer}>
                 {
                     isInCart(state,data.id)?
                         <button onClick={()=>dispatch({type:"Increase",payload:data})} style={{width:"30px"}}>+</button>:
@@ -35,7 +36,7 @@ const Productsdiv = ({data}) => {
                      quantityCount(state,data.id) > 1 &&
                      <button onClick={()=>dispatch({type:"Decrease",payload:data})} style={{width:"30px"}}>-</button>
                 }
-            </div>
+            </div> */}
         </div>
     );
 };

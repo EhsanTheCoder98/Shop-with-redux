@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 
-// context
-import ApiContext from "./Context/ApiContext";
-import Cartcontext from "./Context/Cartcontext";
+// redux
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 // Components
 import Shop from "./Components/Shop";
@@ -14,17 +14,15 @@ import Cart from "./Components/Cart";
 
 const App = () => {
   return (
-    <ApiContext>
-      <Cartcontext>
-        <Navbar />
+    <Provider store={store}>
+        {/* <Navbar /> */}
         <Routes>
-          <Route path="/Cart" element={<Cart />}/>
+          {/* <Route path="/Cart" element={<Cart />}/> */}
           <Route path="/products" element={<Shop />} />
           <Route path="/products/:id" element={<Productdetails />} />
           <Route path="/*" element={<Navigate to="/products" />} />
         </Routes>
-      </Cartcontext>
-    </ApiContext>
+    </Provider>
   );
 };
 
