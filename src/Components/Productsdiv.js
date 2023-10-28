@@ -9,6 +9,7 @@ import { isInCart, quantityCount, shorten } from '../Helpers/functions';
 
 // redux
 import { useDispatch , useSelector } from 'react-redux';
+import { increase,decrease,remove,addItem } from '../redux/cart/cartAction';
 
 const Productsdiv = ({data}) => {
     const state = useSelector(state=>state.cartDetails);
@@ -22,19 +23,19 @@ const Productsdiv = ({data}) => {
             <div className={styles.buttonContainer}>
                 {
                     isInCart(state,data.id)?
-                        <button onClick={()=>dispatch({type:"Increase",payload:data})} style={{width:"30px"}}>+</button>:
-                        <button onClick={()=>dispatch({type:"Add_Item",payload:data})}>Add To Cart</button>
+                        <button onClick={()=>dispatch(increase(data))} style={{width:"30px"}}>+</button>:
+                        <button onClick={()=>dispatch(addItem(data))}>Add To Cart</button>
                 }
                 {
                     quantityCount(state,data.id) > 0 && <div    className={styles.spanContainer}><sapn>{quantityCount(state,data.id)}</sapn></div>
                 }
                 {
                     quantityCount(state,data.id) === 1 &&
-                    <button onClick={()=>dispatch({type:"Remove",payload:data})} style={{width:"30px"}}>R</button>
+                    <button onClick={()=>dispatch(remove(data))} style={{width:"30px"}}>R</button>
                 }
                 {
                      quantityCount(state,data.id) > 1 &&
-                     <button onClick={()=>dispatch({type:"Decrease",payload:data})} style={{width:"30px"}}>-</button>
+                     <button onClick={()=>dispatch(decrease(data))} style={{width:"30px"}}>-</button>
                 }
             </div>
         </div>

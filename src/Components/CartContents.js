@@ -4,6 +4,7 @@ import styles from "./CartContents.module.css";
 
 // redux
 import { useDispatch , useSelector } from 'react-redux';
+import {remove,increase,decrease} from "../redux/cart/cartAction"
 
 // Helpers
 import { quantityCount } from '../Helpers/functions';
@@ -14,16 +15,16 @@ const CartContents = ({product}) => {
     return (
         <div className={styles.container}>
             <div className={styles.leftContainer}>
-            <img src={product.image}/>
+            <img src={product.image} alt='product'/>
             <div className={styles.buttonContainer}>
-            <button onClick={()=>dispatch({type:"Increase",payload:product})} style={{width:"30px",height:"30px"}}>+</button>
+            <button onClick={()=>dispatch(increase(product))} style={{width:"30px",height:"30px"}}>+</button>
             {
                 quantityCount(state,product.id) === 1 &&
-                <button onClick={()=>dispatch({type:"Remove",payload:product})} style={{width:"30px",height:"30px"}}>R</button>
+                <button onClick={()=>dispatch(remove(product))} style={{width:"30px",height:"30px"}}>R</button>
             }
             {
                 quantityCount(state,product.id) > 1 &&
-                <button onClick={()=>dispatch({type:"Decrease",payload:product})} style={{width:"30px",height:"30px"}}>-</button>
+                <button onClick={()=>dispatch(decrease(product))} style={{width:"30px",height:"30px"}}>-</button>
             }
             </div>
             </div>

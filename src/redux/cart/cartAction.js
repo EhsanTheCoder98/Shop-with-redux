@@ -1,21 +1,25 @@
-const addItem = () => {
+const addItem = (product) => {
     return {
-        type:"Add-Item"
+        type:"Add_Item",
+        payload:product
     }
 }
-const increase = () => {
+const increase = (product) => {
     return {
-        type:"Increase"
+        type:"Increase",
+        payload:product
     }
 }
-const decrease = () => {
+const decrease = (product) => {
     return {
-        type:"Decrease"
+        type:"Decrease",
+        payload:product
     }
 }
-const remove = () => {
+const remove = (product) => {
     return {
-        type:"Remove"
+        type:"Remove",
+        payload:product
     }
 }
 const checkout = () => {

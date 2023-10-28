@@ -6,6 +6,7 @@ import CartContents from './CartContents';
 
 // redux
 import { useDispatch , useSelector } from 'react-redux';
+import {checkout} from "../redux/cart/cartAction"
 
 
 const Cart = () => {
@@ -19,7 +20,7 @@ const Cart = () => {
                 : 
                 <div className={styles.container}>
                 <span>Your Total Price Is: {state.totalPrice}$</span>
-                <button onClick={()=>dispatch({type:"checkout"})}>Wanna checkout?</button>
+                <button onClick={()=>dispatch(checkout())}>Wanna checkout?</button>
             </div>
             }
         </div>
