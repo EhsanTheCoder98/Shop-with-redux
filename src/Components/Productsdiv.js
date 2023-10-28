@@ -11,7 +11,7 @@ import { isInCart, quantityCount, shorten } from '../Helpers/functions';
 import { useDispatch , useSelector } from 'react-redux';
 
 const Productsdiv = ({data}) => {
-    const state = useSelector(state=>state.productContainer.products);
+    const state = useSelector(state=>state.cartDetails);
     const dispatch = useDispatch();
     return (
         <div className={styles.container}>
@@ -19,7 +19,7 @@ const Productsdiv = ({data}) => {
             <h2>{shorten(data.title)}</h2>
             <Link   to={`/products/${data.id}`}>Details</Link>
             <span>Price:{data.price}$</span>
-            {/* <div className={styles.buttonContainer}>
+            <div className={styles.buttonContainer}>
                 {
                     isInCart(state,data.id)?
                         <button onClick={()=>dispatch({type:"Increase",payload:data})} style={{width:"30px"}}>+</button>:
@@ -36,7 +36,7 @@ const Productsdiv = ({data}) => {
                      quantityCount(state,data.id) > 1 &&
                      <button onClick={()=>dispatch({type:"Decrease",payload:data})} style={{width:"30px"}}>-</button>
                 }
-            </div> */}
+            </div>
         </div>
     );
 };

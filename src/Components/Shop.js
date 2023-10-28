@@ -22,7 +22,7 @@ const Shop = () => {
   return (
     <div className={styles.container}>
         
-        {product.loading ? <img src={spinner} /> :
+        {product.loading ? <img src={spinner} alt="spinner"/> :
           product.error ? <h1>There is a problem</h1> :
           product.products.map(item => <Productsdiv key={item.id} data={item} />)
         }

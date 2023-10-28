@@ -15,9 +15,9 @@ import Cart from "./Components/Cart";
 const App = () => {
   return (
     <Provider store={store}>
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
-          {/* <Route path="/Cart" element={<Cart />}/> */}
+          <Route path="/Cart" element={<Cart />}/>
           <Route path="/products" element={<Shop />} />
           <Route path="/products/:id" element={<Productdetails />} />
           <Route path="/*" element={<Navigate to="/products" />} />

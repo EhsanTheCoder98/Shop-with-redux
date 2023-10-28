@@ -1,14 +1,16 @@
-import React , {useContext} from 'react';
+import React from 'react';
 import styles from "./Cart.module.css";
 
 // components
 import CartContents from './CartContents';
-// Context
-import { CartContextPro } from '../Context/Cartcontext';
+
+// redux
+import { useDispatch , useSelector } from 'react-redux';
 
 
 const Cart = () => {
-    const {state,dispatch} = useContext(CartContextPro);
+    const state = useSelector(state=>state.cartDetails);
+    const dispatch = useDispatch()
     return (
         <div>
             {state.selectedItems.map(item => <CartContents key={item.id} product={item}/> )}

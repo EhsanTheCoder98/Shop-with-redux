@@ -1,13 +1,16 @@
-import React , {useContext} from 'react';
+import React from 'react';
 import styles from "./CartContents.module.css";
 
-// Context
-import { CartContextPro } from '../Context/Cartcontext';
+
+// redux
+import { useDispatch , useSelector } from 'react-redux';
+
 // Helpers
 import { quantityCount } from '../Helpers/functions';
 
 const CartContents = ({product}) => {
-    const {state,dispatch} = useContext(CartContextPro);
+    const dispatch = useDispatch();
+    const state = useSelector(state=>state.cartDetails)
     return (
         <div className={styles.container}>
             <div className={styles.leftContainer}>
