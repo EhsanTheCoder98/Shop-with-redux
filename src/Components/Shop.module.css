@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-top: 50px;
+}

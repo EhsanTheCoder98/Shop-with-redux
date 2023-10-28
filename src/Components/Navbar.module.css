@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid silver;
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left:20px;
+    right: 20px;
+    width: 90%;
+    backdrop-filter: blur(4px);
+    z-index: 100;
+}
+
+.container a {
+    text-decoration: none;
+    color:rgb(2, 220, 220);
+    transition: all .2s ease-in;
+    padding: 2px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    font-weight:500;
+    position: relative;
+}
+
+.container a:hover {
+    background-color: rgba(0, 0, 0, 0.09);
+}
+
+.container span {
+    position: absolute;
+    top: 50%;
+}
