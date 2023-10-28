@@ -1,6 +1,7 @@
 import React  from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./Navbar.module.css";
+import cartSvg from "../svg/shop.svg";
 
 
 
@@ -14,7 +15,7 @@ const Navbar = () => {
         <div className={styles.container}>
             <Link to="/products">Products</Link>
             <div>
-            <Link to="/Cart">Cart</Link>
+            <Link to="/Cart"><img src={cartSvg}/></Link>
             <span>{state.itemsCounter}</span>          
             </div>
         </div>

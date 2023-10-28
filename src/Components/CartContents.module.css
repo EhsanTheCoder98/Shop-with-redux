@@ -15,6 +15,12 @@
     height: 150px;
 }
 
+.container span {
+    background-color: rgba(128, 128, 128, 0.496);
+    padding: 2px 9px;
+    border-radius: 10px;
+}
+
 .rightContainer {
     display: flex;
     flex-direction: column;
@@ -53,6 +59,20 @@
     .rightContainer{
         margin: 30px auto;
         border-top: 4px solid black;
+        border-radius: 10px;
+    }
+    .dynamicData {
+        border: 1px solid silver;
+        border-radius: 10px;
+    }
+}
+
+@media(max-width:390px){
+    .container{
+        width: 70%;
+    }
+    .dynamicData {
+        border: 1px solid silver;
         border-radius: 10px;
     }
 }

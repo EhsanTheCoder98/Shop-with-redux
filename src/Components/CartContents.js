@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from "./CartContents.module.css";
+import svg from "../svg/trash.svg"
 
 
 // redux
@@ -20,7 +21,7 @@ const CartContents = ({product}) => {
             <button onClick={()=>dispatch(increase(product))} style={{width:"30px",height:"30px"}}>+</button>
             {
                 quantityCount(state,product.id) === 1 &&
-                <button onClick={()=>dispatch(remove(product))} style={{width:"30px",height:"30px"}}>R</button>
+                <button onClick={()=>dispatch(remove(product))} style={{width:"30px",height:"30px"}}><img src={svg} style={{width:"15px", height:"10px"}}/></button>
             }
             {
                 quantityCount(state,product.id) > 1 &&
@@ -30,9 +31,11 @@ const CartContents = ({product}) => {
             </div>
             <div className={styles.rightContainer}>
             <p>{product.description}</p>
-            <span>Category:{product.category}</span>
-            <span>Price:{product.price}$</span>
-            <span>you chose {product.quantity} of this product</span>
+            <div className={styles.dynamicData}>
+            <p>Category:<span>{product.category}</span></p>
+            <p>Price:<span>{product.price}$</span></p>
+            <p>bought <span>{product.quantity}</span> of this product</p>
+            </div>
             </div>
         </div>
     );

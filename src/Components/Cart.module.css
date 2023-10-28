@@ -30,5 +30,6 @@ h3 {
 @media(max-width:390px){
     .container{
         margin-top: 80px;
+        width: 40%;
     }
 }

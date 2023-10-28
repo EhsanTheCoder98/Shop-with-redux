@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./Productsdiv.module.css";
+import svg from "../svg/trash.svg"
 
 
 // Helpers
@@ -31,7 +32,7 @@ const Productsdiv = ({data}) => {
                 }
                 {
                     quantityCount(state,data.id) === 1 &&
-                    <button onClick={()=>dispatch(remove(data))} style={{width:"30px"}}>R</button>
+                    <button onClick={()=>dispatch(remove(data))} style={{width:"30px"}}><img src={svg} style={{width:"15px"}}/></button>
                 }
                 {
                      quantityCount(state,data.id) > 1 &&
